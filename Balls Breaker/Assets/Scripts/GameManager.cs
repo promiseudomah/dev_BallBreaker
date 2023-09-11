@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,11 +21,14 @@ public class GameManager : MonoBehaviour
     [Space]
     [SerializeField] GameObject GameOverScreen;
 
+    public AudioMixer mixer;
+    public string parameterName = "Volume";
+
     
     void Start(){
 
         gameManager = this;
-
+        
         WaitScreen.SetActive(true);
         GameOverScreen.SetActive(false);
 
@@ -86,4 +90,24 @@ public class GameManager : MonoBehaviour
 
         WaitScreen.SetActive(true);
     }
+
+    public Toggle muteToggle; 
+    
+    public void ToggleMute()
+    {
+        
+        if (!muteToggle.isOn)
+        {
+            
+            mixer.SetFloat(parameterName, -80f);
+        }
+        else
+        {
+            
+            mixer.ClearFloat(parameterName);
+        }
+    }
+
+   
+
 }
