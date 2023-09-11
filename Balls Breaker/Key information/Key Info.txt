@@ -1,0 +1,9 @@
+Key for APK
+Keystore = bbreaker.allgam.keystore
+Alias = bbreaker.allgam_apk
+Password = 12341234
+
+Key for AAB
+Keystore = bbreaker.allgam.keystore
+Alias = bbreaker.allgam_aab
+Password = 12341234
